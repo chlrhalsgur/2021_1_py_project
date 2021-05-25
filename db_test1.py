@@ -8,9 +8,9 @@ conn = pymysql.connect(host='localhost', user = 'root', password = '0000', db='f
 curs_input = conn.cursor()
 sql_input = 'insert into players_stats(name, team)\
     values(%s, %s)'
-curs_input.execute(sql_input, ('Messi', 'fcb' ))
-curs_input.execute(sql_input, ('Kane', 'tot'))
-curs_input.execute(sql_input, ('Hazard', 'rmd'))
+curs_input.execute(sql_input, ('Mes', 'fcb' ))
+curs_input.execute(sql_input, ('Kae', 'tot'))
+curs_input.execute(sql_input, ('Ha', 'rmd'))
 conn.commit()
 
 # 출력
@@ -22,6 +22,7 @@ pl_st = curs_output.fetchall()
 
 for row in pl_st:
     print(row['name'], row['age'], row['team'])
+
 
 
 # sql 종료
