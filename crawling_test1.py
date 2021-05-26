@@ -1,16 +1,17 @@
 from urllib.request import urlopen
 from urllib.parse import quote_plus
-from bs4 import Beautifulsoup
+from bs4 import BeautifulSoup
 
 
 search = input('')
-url = 'https://1xbet.whoscored.com/Statistics'
+url = f'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query={quote_plus(search)}'
+
 html = urlopen(url).read()
-soup = Beautifulsoup(html,'html.parser')
+soup = BeautifulSoup(html,'html.parser')
 
-play_time = 'minsPlayed   '
+total = soup.select('.api_txt_lines.total_tit')
 
-print(play_time[0])
+print(total[0].text)
 
 
-print("ss")
+# print("ss")
