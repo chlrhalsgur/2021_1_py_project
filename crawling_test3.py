@@ -1,22 +1,25 @@
 import requests
 from bs4 import BeautifulSoup
+import pymysql
+import db_test1
 
 
-url = 'https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=pnt&date=20210525&tg=1'
-headers = {"User-Agent":"Mozilla/5.0"}
+def crawling_movie():
+    for genre_code in range(1,18):
+        if genre_code == 9:
+            continue
+        url = f'https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=pnt&date=20210525&tg={genre_code}'
+        headers = {"User-Agent":"Mozilla/5.0"}
 
-res = requests.get(url, headers=headers)
-res.raise_for_status()
+        res = requests.get(url, headers=headers)
+        res.raise_for_status()
 
-soup = BeautifulSoup(res.text,'lxml')
-title = soup.select('td.title > div.tit5 > a')
-point = soup.select('td.point') 
+        soup = BeautifulSoup(res.text,'lxml')
+        title = soup.select('td.title > div.tit5 > a')
+        point = soup.select('td.point') 
 
-# for t in title:
-#     print(t.getText())
-# for p in point:
-#     print(p.getText())
-
-for t, p in zip(title, point):
-    print(t, '+', p)
+        for t, p in zip(title, point):
+            
+            db_test1.input_db(t.getText(), float(p.getText()), genre_code)
+    
 
