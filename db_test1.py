@@ -21,16 +21,19 @@ def input_db(title, point, genre_code):
 커서 잡고(딕셔너리) -> 쿼리문 -> excute -> fetch -> 출력
 '''
 def print_db():
+    movie_list = []
     conn = pymysql.connect(host='localhost', user = 'root', password = '0000', db='movie_list', charset = 'utf8')
     curs_output = conn.cursor(pymysql.cursors.DictCursor)
-    sql_output = 'select * from movie_list' 
+    sql_output = 'select * from movie_table' 
     curs_output.execute(sql_output)
-    pl_st = curs_output.fetchall()
+    movie = curs_output.fetchall()
 
-    for row in pl_st:
-        print(row['name'], row['age'], row['team'])
+    for row in movie:
+        movie_list.append([row['title'], row['point'], row['genre_code']])
     conn.close()
-
+    return movie_list
+    
+#print(print_db())
 
 
 # sql 종료

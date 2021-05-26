@@ -3,10 +3,9 @@ from bs4 import BeautifulSoup
 import pymysql
 import db_test1
 
-
 def crawling_movie():
-    for genre_code in range(1,18):
-        if genre_code == 9:
+    for genre_code in range(1,20):
+        if genre_code == 9 or genre_code == 3:
             continue
         url = f'https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=pnt&date=20210525&tg={genre_code}'
         headers = {"User-Agent":"Mozilla/5.0"}
