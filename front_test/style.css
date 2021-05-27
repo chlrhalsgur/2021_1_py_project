@@ -1,0 +1,117 @@
+/*색을 하나하나 바꾸지 않고 한꺼번에 전체에 적용하고 싶을 경우
+:root {
+    --text-color: #f0f4f5;
+    --background-color:#263343;
+    --accent-color: #d49466;
+}
+각 background-color를 var(--background-color)와
+var(--text-color), var(--accent-color)로 변경해 놓으면 
+색깔을 편리하게 바꿀 수 있음*/
+
+body{/*불필요한 곳의 여백을 제거*/
+    margin: 0;
+    font-family: 'Source Sans Pro'; /*글씨 폰트 바꿔줌*/
+}
+
+/*엥커 a태크에 들어가는 기본적인 데코레이션을 제거한다*/
+a {
+    text-decoration: none;
+    color: rgb(241, 224, 224);/*색깔 하얀색으로 바꿔준다*/
+}
+li {
+    text-decoration: none;
+    color: rgb(241, 224, 224);/*색깔 하얀색으로 바꿔준다*/
+}
+
+
+.navbar {
+    display: flex; /*item들을 한 줄에 나란히 배치*/
+    justify-content: space-between ;/*item사이의 거리띄우기*/
+    align-items: center;/*item 센터로 놓기*/
+    background-color: #2e507c;/*색상넣기*/
+    padding: 8px 13px; /*위에는 8픽셀, 양옆은12픽셀씩 공간생성*/
+}
+
+.navbar__logo{/*글자 사이즈 24로 늘려줌*/
+    font-size: 24px;
+    color: white;
+}
+.navbar__logo i{/*로고 사이즈와 색깔을 바꿔줌*/
+    font-size: 24px;
+    color: #ffffff;
+    padding: 0px 3px;
+}
+
+.navbar__menu {
+    display: flex;/*메뉴 한 줄에 나타내기*/
+    list-style: none;/*●문자 제거하고 나타내기*/
+    padding-left: 0;/*메뉴 중간으로 위치변경*/
+}
+ 
+.navbar__menu li{
+    padding: 8px 12px;/*메뉴 글자의 space키움*/
+}
+
+/*마우스가 메뉴에 올라오면 배경이 바뀌도록 함*/
+.navbar__menu li:hover{
+    background-color: #d49466;
+    border-radius: 4px;/*모서리가 둥근 배경이 나오게 하기 위함*/
+}
+
+.navbar__icons {/*트위터나 페이스북 아이콘의 디자인과 위치 변경*/
+    list-style: none;
+    color: white;
+    display: flex;
+    padding-left: 0
+}
+.navbar__icons li{
+    padding: 8px 12px;
+}
+
+/*hamberger아이콘 오른쪽 맨위에 구현*/
+.navbar__toogleBtn {
+    display: none; /*화면이 작아졌을 때만 hamberger아이콘이 나오도록함*/
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #e9c3a7;
+}
+
+/*창이 작아지면 메뉴를 세로로, 커지면 가로로 보여주는 
+동적인 움직에 메뉴들이 다 보일 수 있도록 함*/
+@media screen and (max-width: 768px){
+    /*창이 작아지면 flex-direction: column으로*/
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;/*로고는 왼쪽에 위치하게 함*/
+        padding: 8px 24px;
+    }
+    .navbar__menu {
+        display: none;
+        /*메뉴들도 한줄 한줄 나와애 함*/
+        flex-direction: column;
+        align-items: center;/*다른 메뉴들은 center에 위치시킴*/
+        width: 100%;
+    }
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;/*기본으로 왼쪽 정렬되는 것을 center로함*/
+    }
+    
+    .navbar__icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+    /*창이 작아지면 hamberger아이콘이 보이도록 함*/
+    .navbar__toogleBtn {
+        display: block;
+    }
+    /*메뉴나 아이콘이 active이면(클릭하면)
+    메뉴들이 보인다.*/
+    .navbar__menu.active,
+    .navbar__icons.active {
+        display: flex;
+
+    }
+}

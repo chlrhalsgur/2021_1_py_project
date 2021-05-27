@@ -1,0 +1,60 @@
+<!--주석-->
+<!-- ! tap하면 자동 완성--> 
+<!--#link tap하면 자동완성-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- style.css 연동-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--글씨 폰트 https://fonts.google.com/에서 가져옴-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <title>--Movie Ranking--</title>
+    <script
+         src="https://kit.fontawesome.com/18fd2d7661.js" 
+         crossorigin="anonymous">
+    </script>
+    <!--더 많은 동작을 하기 위해 자바스크립트 활용-->
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">  <!--커다란 박스하나 안에-->
+        <div class="navbar__logo"> <!--또 하나의 박스를 만들었다-->
+        <!--아이콘 하나 로고 하나 만듬-->
+            <i class="fas fa-video"></i> <!--movie logo 사용-->
+            <!--로고를 클릭하면 home으로 가도록 하기 위해 a태그 이용-->
+            <a href="">MovieLove</a> <!--로고이름-->
+
+        <!--fontawesome.com에서 로고를 받는다-->
+        </div>
+        
+
+        <ul class="navbar__menu"><!--메뉴 박스-->
+            <!--메뉴의 목록 3가지-->
+            <li><a href="file:///C:/Users/u/Documents/2021_1_py_project/front_test/index.html"></a>Home</li>
+            <li><a href="https://movie.naver.com/"></a>show movie</li>
+            <li><a href="https://movie.naver.com/movie/sdb/rank/rmovie.nhn"></a>movie ranking</li>
+            <li><a href=""></a>Our movie ranking</li>
+        </ul>
+
+
+        <ul class="navbar__icons"> <!--facebook과 같은 사이트의 아이콘이 있는 박스-->
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-facebook-f"></i></li>
+        </ul>
+
+        <!--hamberger 아이콘 메뉴 보이고 안 보이고를 구현-->
+        <!--hamberger 아이콘 메뉴를 눌렀을 때 현재 페이지가 열리는 
+            것을 방지하기 위해 href="#"를 사용함-->
+        <a href="#" class="navbar__toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+
+    </nav>
+</body>
+</html>
