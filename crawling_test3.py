@@ -22,4 +22,4 @@ def crawling_movie():
             
             db_test1.input_db('movie_list', 'movie_table', t.getText(), float(p.getText()), genre_code)
     
-# crawling_movie()
+crawling_movie()

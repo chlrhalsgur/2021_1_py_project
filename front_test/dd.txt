@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define SWAP(a,b) { int t; t=a; a=b; b=t; }
+void SelectionSort(char *ar, int num)
+{
+    int minidx;
+    int i, j;
+    for (i = 0; i < num-1; i++) {
+        for (minidx = i, j = i+1; j < num; j++) {
+            if (ar[minidx] > ar[j]) {
+                minidx = j;
+            }
+        }
+        if (minidx != i) {
+            SWAP(ar[minidx], ar[i]);
+        }
+    }
+}
+void main()
+{
+    char str[] = "winapi";
+    printf("정렬 전의 문자열 : %s\n", str); 
+    SelectionSort(str, strlen(str));
+    printf("정렬된 문자열 : %s\n", str); 
+}
