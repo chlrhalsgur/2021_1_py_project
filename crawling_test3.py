@@ -1,6 +1,7 @@
+from re import findall
 import requests
 from bs4 import BeautifulSoup
-import pymysql
+from soupsieve import select_one
 import db_test1
 
 def crawling_movie():
@@ -19,6 +20,6 @@ def crawling_movie():
 
         for t, p in zip(title, point):
             
-            db_test1.input_db(t.getText(), float(p.getText()), genre_code)
+            db_test1.input_db('movie_list', 'movie_table', t.getText(), float(p.getText()), genre_code)
     
-
+# crawling_movie()
