@@ -1,25 +1,20 @@
-# !/usr/bin/env python3
-# Anchor extraction from HTML document
+movie_list = [
+    ['홀리데이', '8.67', 16],
+    ['화차', '8.3018', 13],
+    ['화차', '8.3018', 13],
+    ['환생', '8.181', 2],
+    ['후크', '9.12', 12],
+    ['휴고', '7.78', 12],
+    ['히든 페이스', '8.01', 7],
+    ['히든 피겨스', '9.99', 1],
+    ['히트', '9.11', 16]
+]
 
-# pip install bs4 해줘야 함
-# html.parser를 이용해서 분석한다.
 
-from bs4 import BeautifulSoup
-from urllib.request import urlopen
 
-# response에 url을 넣는 다는 의미
 
-response = urlopen('https://understat.com/league/EPL')
-soup = BeautifulSoup(response, 'html.parser')
-select = soup.select(".align-right")
-print(select[0])
 
-# f = open("새파일.txt", 'w')
-# for anchor in soup.select("td.goal"):
-#     data = anchor.get_text()+"\n"
-#     f.write(data)
-# f.close()
-# for anchor in soup.select("span.iconize iconize-icon-left")    
 
-# writedata.py
+a = sort(movie_list)
 
+print(a)

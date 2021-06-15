@@ -1,5 +1,10 @@
 import pymysql
 
+USER = 'root'
+PORT = 3306
+PWD = '0000'
+HOST = 'localhost'
+
 # sql 접속
 # conn = pymysql.connect(host='localhost', user = 'root', password = '0000', db='football_players', charset = 'utf8')
 
@@ -7,8 +12,8 @@ import pymysql
 입력
 접속 -> 커서잡고 -> 쿼리문 작성 -> excute -> commit -> 종료
 '''
-def input_db(database, table, title, point, genre_code):
-    conn = pymysql.connect(host='localhost', user = 'root', password = '0000', db=database, charset = 'utf8')
+def input_db(database, table, title, point, genre_code, detail_link, u = USER, P = PORT, p = PWD, h = HOST):
+    conn = pymysql.connect(host=h, port = P, user = u, password = p, db=database, charset = 'utf8')
     curs_input = conn.cursor()
     sql_input = f'insert ignore into {table}(title, point, genre_code) values(%s, %s, %s)'
     curs_input.execute(sql_input, (title, point, genre_code))
@@ -21,7 +26,7 @@ def input_db(database, table, title, point, genre_code):
 '''
 def print_db():
     movie_list = []
-    conn = pymysql.connect(host='localhost', user = 'root', password = '0000', db='movie_list', charset = 'utf8')
+    conn = pymysql.connect(host=HOST, port = PORT, user = USER, password = PWD, db='movie_list', charset = 'utf8')
     curs_output = conn.cursor(pymysql.cursors.DictCursor)
     sql_output = 'select * from movie_table' 
     curs_output.execute(sql_output)

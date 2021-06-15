@@ -26,6 +26,7 @@ def rerate(movie_list):
         if movie[2] == 3 or movie[2] == 9:
             continue
         movie[1] = str(float(movie[1]) * factors[movie[2]-1])
+        # print(movie)
         db_test1.input_db('movie_list', 'rerated_movie_table', movie[0],movie[1],movie[2])
     
-    
+
